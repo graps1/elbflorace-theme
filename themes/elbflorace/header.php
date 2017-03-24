@@ -3,6 +3,10 @@
   include 'functions/header-functions.php';
 ?>
 
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+</head>
+
 <html <?php language_attributes(); ?>>
 <head>
 
@@ -47,13 +51,13 @@
 
       <div class="container">
           <div class="navbar-header navbar-custom">
-              <button type="button" class="navbar-toggle collapsed"
-               data-toggle="collapse" data-target="#bs-navbar-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
+            <button type="button" class="navbar-toggle collapsed"
+             data-toggle="collapse" data-target="#bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
           </div>
       </div>
 
@@ -75,9 +79,7 @@
   </div>
 
   <img id="header" src=<?php echo "'" . get_page_banner() . "'"; ?>>
-    <img src=<?php echo "'" . get_page_banner_dir() . "logo.png'"?> class="logo">
-  </img>
-
+    <img src=<?php echo "'" . get_page_banner_dir() . "logo.png'"?> class="logo"></img>
   </img>
 
   <div id="main-content" class="container-fluid" style="">

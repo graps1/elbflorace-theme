@@ -24,7 +24,7 @@ get_header(); ?>
 
 
   <?php $args = array(
-  'posts_per_page'   => 5,
+  'posts_per_page'   => 6,
   'offset'           => 0,
   'category'         => '',
   'category_name'    => '',
@@ -48,31 +48,47 @@ get_header(); ?>
 
   //Der erste Post soll hervorgehoben werden
   $first_post = $posts_array[0];
-  create_post($first_post, "post col-xs-12", "headline-big", "text-custom", "post-date");
+  create_post($first_post, "post col-xs-12", "headline-big", "text-post truncate", "post-date");
 
   for ($i=1; $i<sizeof($posts_array); $i++){
     $post = $posts_array[$i];
 
-    create_post($post, "post col-xs-12 col-sm-6 col-lg-4", "headline", "text-custom", "post-date");
+    create_post($post, "post col-xs-12 col-sm-6 col-lg-4", "headline", "text-post truncate", "post-date");
   }
 
   ?>
 
-  <form class="newsletter col-xs-12 col-sm-6 col-lg-8 form-inline">
+  <form class="newsletter col-xs-12 form-inline">
     <div class="headline">Für Newsletter anmelden</div>
-    <div class="form-group">
-      <label class="text-custom-big" for="email">Email:</label>
-      <input type="email" class="form-control" id="email">
-    </div>
     <p class="text-custom">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat.
     </p>
-    <button class="glyphicon glyphicon-ok btn text-custom newsletter-button">Submit</button>
+    <div class="form-group">
+      <label class="text-custom-big" for="email">Email:</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label class="text-custom-big" for="name">Name:</label>
+      <input type="text" class="form-control" id="name">
+    </div>
+    <button class="col-sm-3 glyphicon btn newsletter-button text-custom">
+      Bestätigen
+    </button>
   </form>
 
 </div>
+
+
+
+<script>
+
+  $('.text-post').click(function() {
+    $(this).toggleClass("truncate");
+  });
+
+</script>
 
 <?php get_footer(); ?>

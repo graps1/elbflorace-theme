@@ -114,7 +114,7 @@
       for ($i = 0; $i < strlen($post) && ($i < $min_length || $post[$i] !== " "); $i++) {
         $ret = $ret . $post[$i];
       }
-      return $ret . "...";
+      return $ret;
     }
 
     function create_post_img($images, $img_classes){
@@ -127,7 +127,7 @@
         $images = grab_images($post->post_content);
 
         $content =
-            "<div class='" . $text_classes . "'>" . preview_post(rm_html($post->post_content), 250) . "</div>" .
+            "<div class='" . $text_classes . "'>" . preview_post(rm_html($post->post_content), 11250) . "</div>" .
             "<div class='" . $date_classes . "'>" . $post->post_date_gmt . "</div>";
 
         echo "<div class='" . $post_classes . "'>";

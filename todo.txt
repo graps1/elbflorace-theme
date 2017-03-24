@@ -1,0 +1,26 @@
+TODO:
+	Allgemein:
+	Impressum ausfüllen, Öffnen eines kleinen Vorstellungstext bei Klick auf Sponsorlogo,
+	Header weiter ausfüllen, Fortschrittleiste in Header, evtl. Twitterfeed, evtl. Facebookfeed,	
+
+	Homepage:
+	Bei einzelnem Bild soll kein Carousel generiert werden, nur das Bild
+
+	Team:
+	machen
+
+	Erfolge:
+	machen
+
+	Wettbewerb:
+	machen
+	
+	Medien:
+	machen
+
+	Mitgliedschaft:
+	machen
+
+	Sponsoren:
+	machen
+	

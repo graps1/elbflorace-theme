@@ -47,18 +47,18 @@
             }
 
             echo "<div class='" . $img_par_class . "'>
-                    <div class='" . $img_classes . "' style='background-image:url( " . $img . " );'>
-                  </div></div>";
+                    <div class='" . $img_classes . "' style='background-image:url( " . $img . " );'></div>
+                  </div>";
         }
         echo "</div>";
 
         ?>
             <!-- Left and right controls -->
-            <a class="left carousel-control" href=<?php echo "'#" . $hash . "'" ?> role="button" data-slide="prev">
+            <a class="carousel-control" href=<?php echo "'#" . $hash . "'" ?> role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="right carousel-control" href=<?php echo "'#" . $hash . "'" ?> role="button" data-slide="next">
+            <a class="col-xs-offset-10 carousel-control" href=<?php echo "'#" . $hash . "'" ?> role="button" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -108,15 +108,6 @@
       return $ret;
     }
 
-
-    function preview_post($post, $min_length){
-      $ret = "";
-      for ($i = 0; $i < strlen($post) && ($i < $min_length || $post[$i] !== " "); $i++) {
-        $ret = $ret . $post[$i];
-      }
-      return $ret;
-    }
-
     function create_post_img($images, $img_classes){
         if (sizeof($images) > 0) {
             create_carousel($images, $img_classes);
@@ -127,13 +118,14 @@
         $images = grab_images($post->post_content);
 
         $content =
-            "<div class='" . $text_classes . "'>" . preview_post(rm_html($post->post_content), 11250) . "</div>" .
-            "<div class='" . $date_classes . "'>" . $post->post_date_gmt . "</div>";
-
+            "<p class='" . $text_classes . "'>" . rm_html($post->post_content) . "</p>" .
+            "<div class='post-button btn glyphicon glyphicon-chevron-down'></div>" . 
+            "<p class='" . $date_classes . "'>" . $post->post_date_gmt . "</p>"; 
+        
         echo "<div class='" . $post_classes . "'>";
           echo "<h3 class='" . $headline_classes . "'>" . $post->post_title . "</h3>";
           create_post_img($images, "post-img");
-          echo "<div class='post-left'>".$content."</div>";
+          echo "<div class='content'>".$content."</div>";
         echo "</div>";
     }
 

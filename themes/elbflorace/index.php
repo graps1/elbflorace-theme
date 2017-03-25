@@ -19,7 +19,7 @@ include 'functions/post-template.php';
 
 get_header(); ?>
 
-<div class="posts row container-fluid col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+<div id="posts" class="row container-fluid col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
   <div class="col-xs-12 headline-big">Beiträge</div>
 
 
@@ -48,12 +48,12 @@ get_header(); ?>
 
   //Der erste Post soll hervorgehoben werden
   $first_post = $posts_array[0];
-  create_post($first_post, "post col-xs-12", "headline-big", "text-post truncate", "post-date");
+  create_post($first_post, "post col-xs-12", "headline-big", "truncate", "date");
 
   for ($i=1; $i<sizeof($posts_array); $i++){
     $post = $posts_array[$i];
 
-    create_post($post, "post col-xs-12 col-sm-6 col-lg-4", "headline", "text-post truncate", "post-date");
+    create_post($post, "post col-xs-12 col-sm-6 col-lg-4", "headline", "truncate", "date");
   }
 
   ?>
@@ -80,15 +80,5 @@ get_header(); ?>
   </form>
 
 </div>
-
-
-
-<script>
-
-  $('.text-post').click(function() {
-    $(this).toggleClass("truncate");
-  });
-
-</script>
 
 <?php get_footer(); ?>

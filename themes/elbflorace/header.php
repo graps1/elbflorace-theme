@@ -78,8 +78,8 @@
 
   </div>
 
-  <img id="header" src=<?php echo "'" . get_page_banner() . "'"; ?>>
-    <img src=<?php echo "'" . get_page_banner_dir() . "logo.png'"?> class="logo"></img>
+  <img id="header"src="<?php echo get_page_banner(); ?>">
+    <img src='<?php echo get_page_banner_dir() . "logo.png"; ?>' id="logo"></img>
   </img>
 
-  <div id="main-content" class="container-fluid" style="">
+  <div id="main-content" class="see-through-black-light container-fluid" style="">

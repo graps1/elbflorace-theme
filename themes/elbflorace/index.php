@@ -14,12 +14,9 @@
  * @since 1.0
  * @version 1.0
  */
-
-include 'functions/post-template.php';
-
 get_header(); ?>
 
-<div id="posts" class="row container-fluid col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+<div id="posts" class="content-container container-fluid col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
   <div class="col-xs-12 headline-big">Beiträge</div>
 
 

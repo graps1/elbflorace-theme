@@ -3,34 +3,17 @@
     /*
     creates a carousel for a list of image-links
     */
-    function create_carousel($images, $img_classes){
-        $hash = substr(str_shuffle(MD5(microtime())), 0, 10);
-
-        //Find maximum image-size, so the carousel won't change its size
-        //and destroy our nice layout
-        $max_height = -1;
-        $max_width = -1;
-        foreach ($images as $img) {
-          $size = getimagesize($img);
-          if ($max_height === -1 || $max_height < $size[1]) {
-            $max_height = $size[1];
-          }
-
-          if ($max_width === -1 || $max_width < $size[0]) {
-            $max_width = $size[0];
-          }
-        }
-
+    function create_carousel($images, $carousel_class, $target_id){
         //Indicators
-        echo "<div id='". $hash . "' class='carousel slide post-carousel'
+        echo "<div id='". $target_id . "' class='" . $carousel_class . " carousel slide post-carousel'
             data-ride='carousel'>
             <ol class='carousel-indicators'>";
 
         for ($i = 0; $i < sizeof($images); $i++){
             if ($i == 0) {
-                echo "<li data-target='#".$hash."' data-slide-to='0' class='active'></li>";
+                echo "<li data-target='#".$target_id."' data-slide-to='0' class='carousel-indicator active'></li>";
             } else {
-                echo "<li data-target'#".$hash."' data-slide-to='" . $i . "'></li>";
+                echo "<li data-target'#".$target_id."' data-slide-to='" . $i . " class='carousel-indicator'></li>";
             }
         }
 
@@ -47,18 +30,18 @@
             }
 
             echo "<div class='" . $img_par_class . "'>
-                    <div class='" . $img_classes . "' style='background-image:url( " . $img . " );'></div>
+                    <div class='image' style='background-image:url( " . $img . " );'></div>
                   </div>";
         }
         echo "</div>";
 
         ?>
             <!-- Left and right controls -->
-            <a class="carousel-control" href=<?php echo "'#" . $hash . "'" ?> role="button" data-slide="prev">
+            <a class="carousel-control" href=<?php echo "'#" . $target_id . "'" ?> role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="col-xs-offset-10 carousel-control" href=<?php echo "'#" . $hash . "'" ?> role="button" data-slide="next">
+            <a class="col-xs-offset-10 carousel-control" href=<?php echo "'#" . $target_id . "'" ?> role="button" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -109,8 +92,10 @@
     }
 
     function create_post_img($images, $img_classes){
+        //generate a random string as id
+        $hash = substr(str_shuffle(MD5(microtime())), 0, 10);
         if (sizeof($images) > 0) {
-            create_carousel($images, $img_classes);
+            create_carousel($images, $img_classes, $hash);
         }
     }
 
@@ -124,7 +109,7 @@
         
         echo "<div class='" . $post_classes . "'>";
           echo "<h3 class='" . $headline_classes . "'>" . $post->post_title . "</h3>";
-          create_post_img($images, "post-img");
+          create_post_img($images, "carousel-post");
           echo "<div class='content'>".$content."</div>";
         echo "</div>";
     }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
   include 'functions/header-functions.php';
+  include 'functions/post-template.php';
 ?>
 
 <head>
@@ -78,8 +79,8 @@
 
   </div>
 
-  <img id="header"src="<?php echo get_page_banner(); ?>">
-    <img src='<?php echo get_page_banner_dir() . "logo.png"; ?>' id="logo"></img>
-  </img>
-
-  <div id="main-content" class="see-through-black-light container-fluid" style="">
+  <img id="header" src="<?php echo get_page_banner(); ?>"></img>
+  <div id="main-content" class="container-fluid" style="">
+    <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" id="logo">
+      <img src='<?php echo get_page_banner_dir() . "logo.png"; ?>'></img> 
+    </div>

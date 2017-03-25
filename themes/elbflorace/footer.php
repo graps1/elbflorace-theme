@@ -1,33 +1,37 @@
 
-  </div>
-  <div class="container see-through-black-light" id="footer">
-    <div class="sponsor-viewport">
+    <div id="sponsors" class="content-container sponsor-viewport row col-xs-12 col-lg-8 col-lg-offset-2 col-xs-offset-0 white">
+      <div class="col-xs-12 headline-big">Sponsoren</div>
+
+      <?php
+        $images = glob("wp-content/sponsor/banner/*.jpg");
+        $images_parsed = array();
+
+        echo "<div>";
+          $i=0;
+          foreach ($images as $img) {
+            //Path nicht hardcoden
+            $path = "/wordpress/" . $img;
+            array_push($images_parsed, $path);
+            echo "<div class='sponsor' id='sponsor-carousel-item-" . $i . "'>
+                    <img src='" . $path . "'>
+                  </div>";
+            $i++;
+          }
+        echo "</div>";
+
+
+        echo "<div>";
+          create_carousel($images_parsed, "", "carousel-sponsors");
+        echo "</div>";
+      ?>
+    
     </div>
 
-    <?php
-      $images = glob("wp-content/sponsor/banner/*.jpg");
+  </div><!-- main-content -->
 
-      echo "<div class='col-xs-12 col-lg-8 col-lg-offset-2 col-xs-offset-0'>";
-        create_carousel($images, "sponsor-carousel-img");
-      echo "</div>";
-      
-      echo "<div class='col-xs-12 col-lg-8 col-lg-offset-2'>";
-        foreach ($images as $img) {
-          //Path nicht hardcoden
-          $path = "/wordpress/" . $img;
-          echo "<div class='sponsor' src='".$path."'>
-                  <img src='" . $path . "'>
-                  <p>Ausführliche Beschreibung...</p>
-                </div>";
-        }
-      echo "</div>";
-
-     ?>
-  </div>
-
-  <div id="impressum" class="see-through-black-strong">
-    <p class="impr-text">Impressum</p>
-  </div>
+    <div id="impressum">
+      <p class="impr-text">Impressum</p>
+    </div>
   
   <script src="/wordpress/wp-content/themes/elbflorace/script.js"></script>
 

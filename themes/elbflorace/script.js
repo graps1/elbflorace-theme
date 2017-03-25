@@ -9,9 +9,10 @@ $('.post-button').click(function() {
 
 $(".sponsor").click(function() {
     $(this).toggleClass("active");
-
-    $("body").append("<img/>", {
-        "id" : "sponsor-popup",
-        "src" : $(this).attr("src")
-    });
+    var id_name = $(this).attr("id");
+    var id = id_name.substring(id_name.lastIndexOf("-")+1);
+    console.log(id);
+    var carousel = $("#carousel-sponsors");
+    carousel.carousel(Number(id));
+    carousel.carousel("pause");
 });

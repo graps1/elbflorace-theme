@@ -60,12 +60,12 @@
         for ($i=0; $i<sizeof($matches[1]); $i++){
           //$link = $matches[1][$i];
 
-          //removes the http://localhost/wordpress/... from a link
+          //removes the http://localhost... from a link
           //so other devices can access these images!
           //not working when integrating images from other websites,
           //
           //maybe test for "http://localhost/" and then cut?
-          $link = substr($matches[1][$i], 27);
+          $link = substr($matches[1][$i], 16);
 
           array_push($links, $link);
         }
@@ -109,11 +109,12 @@
 
     function create_post ($post, $post_classes, $headline_classes, $text_classes, $date_classes) {
         $images = grab_images($post->post_content);
-
+        
         $content =
-            "<p class='" . $text_classes . "'>" . rm_html($post->post_content) . "</p>" .
-            "<div class='post-button btn glyphicon glyphicon-chevron-down'></div>" . 
-            "<p class='" . $date_classes . "'>" . $post->post_date_gmt . "</p>"; 
+            "<p class='" . $text_classes . "'>" . rm_html($post->post_content) . "</p>
+                <div class='post-button btn glyphicon glyphicon-chevron-down' 
+                    full-height='1000px' collapsed-height='60px'></div>
+            <p class='" . $date_classes . "'>" . $post->post_date_gmt . "</p>"; 
         
         echo "<div class='" . $post_classes . "'>";
           echo "<h3 class='" . $headline_classes . "'>" . $post->post_title . "</h3>";

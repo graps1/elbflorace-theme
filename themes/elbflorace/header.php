@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-  include 'functions/header-functions.php';
-  include 'functions/post-template.php';
+  include 'templates/post-template.php';
+  include 'templates/sponsors-template.php';
 ?>
 
 <head>

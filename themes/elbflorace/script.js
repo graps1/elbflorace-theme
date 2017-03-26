@@ -1,5 +1,22 @@
-$('.post-button').click(function() {
+var postBtn;
+
+//collapse all when loading page
+$(".post-button").each(function() {
+    postBtn = $(this);
     $(this).siblings(".truncate").each(function() {
+        $(this).removeClass("truncate-inactive");
+        $(this).css("max-height", postBtn.attr("collapsed-height"));
+    });
+});
+
+$('.post-button').click(function() {
+    postBtn = $(this)
+    $(this).siblings(".truncate").each(function() {
+        if ($(this).hasClass("truncate-inactive")) {
+            $(this).css("max-height", postBtn.attr("collapsed-height"));   
+        } else {
+            $(this).css("max-height", postBtn.attr("full-height"));
+        }
         $(this).toggleClass("truncate-inactive");
     });
     $(this).toggleClass("glyphicon-chevron-up");

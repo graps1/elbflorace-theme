@@ -14,6 +14,8 @@ Allgemein:
 	bei Posts nur die <img>-Tags entfernen, alle anderen sollen so bleiben
 	(aktuell werden alle Tags entfernt, und die Bilder werden ins Carousel gesetzt)
 
+	toggle-tab bei Team und Wagen
+
 Homepage:
 	Bei einzelnem Bild soll kein Carousel generiert werden, nur das Bild
 
@@ -37,3 +39,7 @@ Mitgliedschaft:
 
 Sponsoren:
 	machen, Sponsoren-Post: Kategorie: Sponsor, Tag: das Jahr 
+
+
+FRAGEN:
+- wie ist der grundsätzliche aufbau der aktuellen website?

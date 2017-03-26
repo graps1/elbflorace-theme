@@ -20,26 +20,22 @@ get_header(); ?>
   <div class="col-xs-12 headline-big">Beiträge</div>
 
 
-  <?php $args = array(
-  'posts_per_page'   => 6,
-  'offset'           => 0,
-  'category'         => '',
-  'category_name'    => '',
-  'orderby'          => 'date',
-  'order'            => 'DESC',
-  'include'          => '',
-  'exclude'          => '',
-  'meta_key'         => '',
-  'meta_value'       => '',
-  'post_type'        => 'post',
-  'post_mime_type'   => '',
-  'post_parent'      => '',
-  'author'	   => '',
-  'author_name'	   => '',
-  'post_status'      => 'publish',
-  'suppress_filters' => true
+  <?php 
+  
+  $args = array(
+    'numberposts' => 4,
+    'offset' => 0,
+    'category' => 0,
+    'orderby' => 'post_date',
+    'order' => 'DESC',
+    'include' => '',
+    'exclude' => '',
+    'meta_key' => '',
+    'meta_value' =>'',
+    'post_type' => 'post',
+    'post_status' => 'draft, publish, future, pending, private',
+    'suppress_filters' => true
   );
-
 
   $posts_array = get_posts( $args );
 
@@ -51,6 +47,7 @@ get_header(); ?>
     $post = $posts_array[$i];
 
     create_post($post, "post col-xs-12 col-sm-6 col-lg-4", "headline", "truncate", "date");
+		
   }
 
   ?>

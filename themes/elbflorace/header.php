@@ -42,10 +42,8 @@
  content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no">
 
 </head>
-
 <body <?php body_class(); ?>>
 
-  </br>
   <div class="navbar-header-custom">
     <!-- Collect the nav links, forms, and other content for toggling -->
     <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -69,7 +67,7 @@
           <li><a class="tab" href="/wordpress/index.php/team">Team</a></li>
           <li><a class="tab" href="#">Fahrzeuge</a></li>
           <li><a class="tab" href="#">Erfolge</a></li>
-          <li><a class="tab" href="#">Wettbewerb</a></li>
+          <li><a class="tab" href="/wordpress/index.php/wettbewerb">Wettbewerb</a></li>
           <li><a class="tab" href="#">Medien</a></li>
           <li><a class="tab" href="#">Mitgliedschaft</a></li>
           <li><a class="tab" href="#">Sponsoren</a></li>
@@ -80,7 +78,8 @@
   </div>
 
   <img id="header" src="<?php echo get_page_banner(); ?>"></img>
-  <div id="main-content" class="container-fluid" style="">
-    <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" id="logo">
+
+  <div id="main-content" class="main-content container-fluid col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div id="logo">
       <img src='<?php echo get_page_banner_dir() . "logo.png"; ?>'></img> 
     </div>

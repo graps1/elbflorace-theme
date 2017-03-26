@@ -1,5 +1,5 @@
 
-    <div id="sponsors" class="content-container sponsor-viewport row col-xs-12 col-lg-8 col-lg-offset-2 col-xs-offset-0 white">
+    <div id="sponsors" class="content-container sponsor-viewport white">
       <div class="col-xs-12 headline-big">Sponsoren</div>
 
       <?php
@@ -21,18 +21,22 @@
 
 
         echo "<div>";
-          create_carousel($images_parsed, "", "carousel-sponsors");
+          create_carousel($images_parsed, "", "carousel-sponsors",
+            "<p> Beschreibung </p>"
+          );
         echo "</div>";
       ?>
     
     </div>
 
-  </div><!-- main-content -->
 
-    <div id="impressum">
-      <p class="impr-text">Impressum</p>
-    </div>
+  </div><!-- main-content -->
   
+
+  <div id="impressum" class="col-xs-12">
+    <p class="impr-text">Impressum</p>
+  </div>
+
   <script src="/wordpress/wp-content/themes/elbflorace/script.js"></script>
 
 <?php wp_footer(); ?>

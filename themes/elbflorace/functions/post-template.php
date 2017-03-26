@@ -3,7 +3,7 @@
     /*
     creates a carousel for a list of image-links
     */
-    function create_carousel($images, $carousel_class, $target_id){
+    function create_carousel($images, $carousel_class, $target_id, $extra_item_content = ""){
         //Indicators
         echo "<div id='". $target_id . "' class='" . $carousel_class . " carousel slide post-carousel'
             data-ride='carousel'>
@@ -30,18 +30,19 @@
             }
 
             echo "<div class='" . $img_par_class . "'>
-                    <div class='image' style='background-image:url( " . $img . " );'></div>
-                  </div>";
+                    <div class='image' style='background-image:url( " . $img . " );'></div>"
+                    . $extra_item_content .
+                  "</div>";
         }
         echo "</div>";
 
         ?>
             <!-- Left and right controls -->
-            <a class="carousel-control" href=<?php echo "'#" . $target_id . "'" ?> role="button" data-slide="prev">
+            <a class="carousel-control" href="#<?php echo $target_id; ?>" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="col-xs-offset-10 carousel-control" href=<?php echo "'#" . $target_id . "'" ?> role="button" data-slide="next">
+            <a class="col-xs-offset-10 carousel-control" href="#<?php echo $target_id; ?>" role="button" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -94,7 +95,14 @@
     function create_post_img($images, $img_classes){
         //generate a random string as id
         $hash = substr(str_shuffle(MD5(microtime())), 0, 10);
-        if (sizeof($images) > 0) {
+
+        if (sizeof($images) == 1) {
+            echo "
+                <div id='" . $hash ."' class='carousel-post'>
+                    <img src='" . $images[0] . "' width='100%'></img>
+                </div>
+            ";
+        } elseif (sizeof($images) > 0) {
             create_carousel($images, $img_classes, $hash);
         }
     }

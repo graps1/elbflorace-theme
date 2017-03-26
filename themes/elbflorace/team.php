@@ -3,7 +3,7 @@
 * Template Name: Team
 */ get_header(); ?>
 
-<div class="content-container container-fluid col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+<div class="content-container container-fluid">
   <p class="text-custom">
     Hier kommt der Inhalt für die Teamseite!</br></br>
 

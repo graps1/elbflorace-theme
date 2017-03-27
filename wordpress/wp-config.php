@@ -1,4 +1,8 @@
 <?php
+
+// Configuration common to all environments
+include_once __DIR__ . '/wp-config.common.php';
+
 /**
  * Grundeinstellungen für WordPress
  *
@@ -104,6 +108,7 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+define('VP_ENVIRONMENT', 'default');
 /* Das war’s, Schluss mit dem Bearbeiten! Viel Spaß beim Bloggen. */
 /* That's all, stop editing! Happy blogging. */
 
